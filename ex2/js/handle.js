@@ -20,6 +20,7 @@ function input(intArray){
       "1-Print Array <br>"+
       "2-Calculate sum of all element <br>"+
       "3-Check element <br>"+
+      "4-Sort element <br>"+
     "</p>"+
     "<form id='choiceForm' action='javascript:void(0)''>"+
       "<div>"+
@@ -48,7 +49,10 @@ function input(intArray){
           document.getElementById("result").innerHTML = "<p>Not exist</p>";
         }
         break;
-
+      case "4":
+        document.getElementById("result").innerHTML =
+          "<p>Sorted array is: "+ sortByAsc(intArray) +"</p>";
+        break;
       default:
         document.getElementById("result").innerHTML = "Invalid number"
     }
@@ -80,4 +84,12 @@ function searchArray(intArray, value){
   }
   return check;
 }
-
+function sortByAsc(intArray){
+  var coppyArray = [];
+  for(var i = 0; i < intArray.length; i++){
+    for (var j = 0; j < intArray[0].length; j++){
+      coppyArray.push(parseInt(intArray[i][j]));
+    }
+  }
+  return coppyArray.sort(function(a, b){return a - b});
+}
